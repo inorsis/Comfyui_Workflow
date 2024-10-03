@@ -1,0 +1,968 @@
+{
+  "last_node_id": 23,
+  "last_link_id": 37,
+  "nodes": [
+    {
+      "id": 4,
+      "type": "FaceParsingProcessorLoader(FaceParsing)",
+      "pos": {
+        "0": 234.0404815673828,
+        "1": 217.78713989257812
+      },
+      "size": {
+        "0": 327.6000061035156,
+        "1": 26
+      },
+      "flags": {
+        "collapsed": true
+      },
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "FACE_PARSING_PROCESSOR",
+          "type": "FACE_PARSING_PROCESSOR",
+          "links": [
+            2
+          ],
+          "shape": 3,
+          "label": "FACE_PARSING_PROCESSOR"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "FaceParsingProcessorLoader(FaceParsing)"
+      }
+    },
+    {
+      "id": 2,
+      "type": "FaceParse(FaceParsing)",
+      "pos": {
+        "0": 224.0404815673828,
+        "1": 257.7871398925781
+      },
+      "size": {
+        "0": 245.1999969482422,
+        "1": 66
+      },
+      "flags": {
+        "collapsed": true
+      },
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "FACE_PARSING_MODEL",
+          "link": 1,
+          "label": "model"
+        },
+        {
+          "name": "processor",
+          "type": "FACE_PARSING_PROCESSOR",
+          "link": 2,
+          "label": "processor"
+        },
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 3,
+          "label": "image"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            4
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "IMAGE"
+        },
+        {
+          "name": "FACE_PARSING_RESULT",
+          "type": "FACE_PARSING_RESULT",
+          "links": [
+            5
+          ],
+          "slot_index": 1,
+          "shape": 3,
+          "label": "FACE_PARSING_RESULT"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "FaceParse(FaceParsing)"
+      }
+    },
+    {
+      "id": 3,
+      "type": "FaceParsingModelLoader(FaceParsing)",
+      "pos": {
+        "0": 224.0404815673828,
+        "1": 167.78717041015625
+      },
+      "size": {
+        "0": 294,
+        "1": 58
+      },
+      "flags": {
+        "collapsed": true
+      },
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "FACE_PARSING_MODEL",
+          "type": "FACE_PARSING_MODEL",
+          "links": [
+            1
+          ],
+          "shape": 3,
+          "label": "FACE_PARSING_MODEL"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "FaceParsingModelLoader(FaceParsing)"
+      },
+      "widgets_values": [
+        "cpu"
+      ]
+    },
+    {
+      "id": 6,
+      "type": "PreviewImage",
+      "pos": {
+        "0": 234.0404815673828,
+        "1": 327.7871398925781
+      },
+      "size": {
+        "0": 210,
+        "1": 246
+      },
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 4,
+          "label": "images"
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      }
+    },
+    {
+      "id": 5,
+      "type": "FaceParsingResultsParser(FaceParsing)",
+      "pos": {
+        "0": 554.0404052734375,
+        "1": 147.78717041015625
+      },
+      "size": {
+        "0": 466.1999816894531,
+        "1": 490
+      },
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "result",
+          "type": "FACE_PARSING_RESULT",
+          "link": 5,
+          "label": "result"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": [
+            7
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "MASK"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "FaceParsingResultsParser(FaceParsing)"
+      },
+      "widgets_values": [
+        false,
+        false,
+        false,
+        false,
+        true,
+        true,
+        false,
+        false,
+        false,
+        false,
+        true,
+        true,
+        true,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "id": 10,
+      "type": "MaskToImage",
+      "pos": {
+        "0": 1136,
+        "1": 450
+      },
+      "size": {
+        "0": 264.5999755859375,
+        "1": 26
+      },
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "mask",
+          "type": "MASK",
+          "link": 8,
+          "label": "mask"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            9,
+            15
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "IMAGE"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MaskToImage"
+      }
+    },
+    {
+      "id": 15,
+      "type": "Cut By Mask",
+      "pos": {
+        "0": 1479,
+        "1": 153
+      },
+      "size": {
+        "0": 342.5999755859375,
+        "1": 122
+      },
+      "flags": {},
+      "order": 15,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 33,
+          "label": "image"
+        },
+        {
+          "name": "mask",
+          "type": "IMAGE",
+          "link": 15,
+          "label": "mask"
+        },
+        {
+          "name": "mask_mapping_optional",
+          "type": "MASK_MAPPING",
+          "link": null,
+          "label": "mask_mapping_optional"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            12
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "IMAGE"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Cut By Mask"
+      },
+      "widgets_values": [
+        0,
+        0
+      ]
+    },
+    {
+      "id": 17,
+      "type": "PreviewImage",
+      "pos": {
+        "0": 1485,
+        "1": 341
+      },
+      "size": [
+        331.37015863822603,
+        340.64906214811947
+      ],
+      "flags": {},
+      "order": 17,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 12,
+          "label": "images"
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      }
+    },
+    {
+      "id": 18,
+      "type": "ImageCompositeMasked",
+      "pos": {
+        "0": 1956.63525390625,
+        "1": 213.4474639892578
+      },
+      "size": {
+        "0": 315,
+        "1": 146
+      },
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "destination",
+          "type": "IMAGE",
+          "link": 31,
+          "label": "destination"
+        },
+        {
+          "name": "source",
+          "type": "IMAGE",
+          "link": 30,
+          "label": "source"
+        },
+        {
+          "name": "mask",
+          "type": "MASK",
+          "link": 16,
+          "label": "mask"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            17
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "IMAGE"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImageCompositeMasked"
+      },
+      "widgets_values": [
+        0,
+        0,
+        false
+      ]
+    },
+    {
+      "id": 19,
+      "type": "SaveImage",
+      "pos": {
+        "0": 2485,
+        "1": 140
+      },
+      "size": [
+        676.6873049744277,
+        617.8828923307558
+      ],
+      "flags": {},
+      "order": 16,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 17,
+          "label": "images"
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "SaveImage"
+      },
+      "widgets_values": [
+        "ComfyUI"
+      ]
+    },
+    {
+      "id": 20,
+      "type": "Reroute",
+      "pos": {
+        "0": 1859,
+        "1": -54
+      },
+      "size": [
+        75,
+        26
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "",
+          "type": "*",
+          "link": 35
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "IMAGE",
+          "links": [
+            31,
+            33
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "showOutputText": false,
+        "horizontal": false
+      }
+    },
+    {
+      "id": 21,
+      "type": "Reroute",
+      "pos": {
+        "0": 1847,
+        "1": 840
+      },
+      "size": [
+        75,
+        26
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "",
+          "type": "*",
+          "link": 37
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "IMAGE",
+          "links": [
+            30
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "showOutputText": false,
+        "horizontal": false
+      }
+    },
+    {
+      "id": 23,
+      "type": "Reroute",
+      "pos": {
+        "0": 298,
+        "1": 837
+      },
+      "size": [
+        75,
+        26
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "",
+          "type": "*",
+          "link": 36
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "IMAGE",
+          "links": [
+            37
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "showOutputText": false,
+        "horizontal": false
+      }
+    },
+    {
+      "id": 16,
+      "type": "LoadImage",
+      "pos": {
+        "0": -313,
+        "1": 838
+      },
+      "size": [
+        366.8236914779633,
+        416.63775272446514
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            36
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "IMAGE"
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null,
+          "shape": 3,
+          "label": "MASK"
+        }
+      ],
+      "title": "Flux原圖",
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "2024-10-02_00082_.png",
+        "image"
+      ]
+    },
+    {
+      "id": 1,
+      "type": "LoadImage",
+      "pos": {
+        "0": -433,
+        "1": 157
+      },
+      "size": [
+        415.63917541893545,
+        525.1826342456441
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            3,
+            34
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "IMAGE"
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null,
+          "shape": 3,
+          "label": "MASK"
+        }
+      ],
+      "title": "臉部真實化Realism Lora",
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "2024-10-02_00080_.png",
+        "image"
+      ]
+    },
+    {
+      "id": 22,
+      "type": "Reroute",
+      "pos": {
+        "0": 227,
+        "1": -68
+      },
+      "size": [
+        75,
+        26
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "",
+          "type": "*",
+          "link": 34
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "IMAGE",
+          "links": [
+            35
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "showOutputText": false,
+        "horizontal": false
+      }
+    },
+    {
+      "id": 8,
+      "type": "GrowMaskWithBlur",
+      "pos": {
+        "0": 1110,
+        "1": 156
+      },
+      "size": {
+        "0": 315,
+        "1": 246
+      },
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "mask",
+          "type": "MASK",
+          "link": 7,
+          "label": "mask"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "mask",
+          "type": "MASK",
+          "links": [
+            8,
+            16
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "mask"
+        },
+        {
+          "name": "mask_inverted",
+          "type": "MASK",
+          "links": null,
+          "shape": 3,
+          "label": "mask_inverted"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GrowMaskWithBlur"
+      },
+      "widgets_values": [
+        20,
+        0,
+        true,
+        false,
+        8,
+        1,
+        1,
+        false
+      ]
+    },
+    {
+      "id": 13,
+      "type": "PreviewImage",
+      "pos": {
+        "0": 1106,
+        "1": 516
+      },
+      "size": [
+        341.9159571736409,
+        192.76075186852802
+      ],
+      "flags": {},
+      "order": 14,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 9,
+          "label": "images"
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      }
+    }
+  ],
+  "links": [
+    [
+      1,
+      3,
+      0,
+      2,
+      0,
+      "FACE_PARSING_MODEL"
+    ],
+    [
+      2,
+      4,
+      0,
+      2,
+      1,
+      "FACE_PARSING_PROCESSOR"
+    ],
+    [
+      3,
+      1,
+      0,
+      2,
+      2,
+      "IMAGE"
+    ],
+    [
+      4,
+      2,
+      0,
+      6,
+      0,
+      "IMAGE"
+    ],
+    [
+      5,
+      2,
+      1,
+      5,
+      0,
+      "FACE_PARSING_RESULT"
+    ],
+    [
+      7,
+      5,
+      0,
+      8,
+      0,
+      "MASK"
+    ],
+    [
+      8,
+      8,
+      0,
+      10,
+      0,
+      "MASK"
+    ],
+    [
+      9,
+      10,
+      0,
+      13,
+      0,
+      "IMAGE"
+    ],
+    [
+      12,
+      15,
+      0,
+      17,
+      0,
+      "IMAGE"
+    ],
+    [
+      15,
+      10,
+      0,
+      15,
+      1,
+      "IMAGE"
+    ],
+    [
+      16,
+      8,
+      0,
+      18,
+      2,
+      "MASK"
+    ],
+    [
+      17,
+      18,
+      0,
+      19,
+      0,
+      "IMAGE"
+    ],
+    [
+      30,
+      21,
+      0,
+      18,
+      1,
+      "IMAGE"
+    ],
+    [
+      31,
+      20,
+      0,
+      18,
+      0,
+      "IMAGE"
+    ],
+    [
+      33,
+      20,
+      0,
+      15,
+      0,
+      "IMAGE"
+    ],
+    [
+      34,
+      1,
+      0,
+      22,
+      0,
+      "*"
+    ],
+    [
+      35,
+      22,
+      0,
+      20,
+      0,
+      "*"
+    ],
+    [
+      36,
+      16,
+      0,
+      23,
+      0,
+      "*"
+    ],
+    [
+      37,
+      23,
+      0,
+      21,
+      0,
+      "*"
+    ]
+  ],
+  "groups": [
+    {
+      "title": "Flux原圖（保留細節）與真實化皮膚合成",
+      "bounding": [
+        1933,
+        95,
+        451,
+        628
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "title": "抓取保留細節遮罩",
+      "bounding": [
+        214,
+        74,
+        831,
+        644
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "title": "查看及調整遮罩大小",
+      "bounding": [
+        1096,
+        79,
+        736,
+        644
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "title": "Flux原圖output連結Route",
+      "bounding": [
+        222,
+        790,
+        280,
+        92
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "title": "realismlora重繪output連結Route",
+      "bounding": [
+        217,
+        -111,
+        373,
+        88
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    }
+  ],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.371900826446282,
+      "offset": [
+        2260.8768143656134,
+        664.6274586742095
+      ]
+    }
+  },
+  "version": 0.4
+}
