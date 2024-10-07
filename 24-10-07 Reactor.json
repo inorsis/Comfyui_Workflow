@@ -1,0 +1,592 @@
+{
+  "last_node_id": 71,
+  "last_link_id": 117,
+  "nodes": [
+    {
+      "id": 17,
+      "type": "LoadImage",
+      "pos": {
+        "0": 1987.9375,
+        "1": 259.91705322265625
+      },
+      "size": {
+        "0": 315,
+        "1": 314
+      },
+      "flags": {},
+      "order": 0,
+      "mode": 2,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            114
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "IMAGE"
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null,
+          "slot_index": 1,
+          "shape": 3,
+          "label": "MASK"
+        }
+      ],
+      "title": "Your selfie",
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "Z62_1652-編輯 (4).jpg",
+        "image"
+      ]
+    },
+    {
+      "id": 61,
+      "type": "LoadImage",
+      "pos": {
+        "0": 1994.9375,
+        "1": 670.9170532226562
+      },
+      "size": {
+        "0": 315,
+        "1": 314
+      },
+      "flags": {},
+      "order": 1,
+      "mode": 2,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            115
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "IMAGE"
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null,
+          "shape": 3,
+          "label": "MASK"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "smer_87867_Beautiful_Chinese_female_model_photo_with_long_hair__653beb06-9bff-4f8c-8840-3560f59d5bbc.png",
+        "image"
+      ]
+    },
+    {
+      "id": 68,
+      "type": "ReActorFaceSwap",
+      "pos": {
+        "0": 2973.93798828125,
+        "1": 247.91705322265625
+      },
+      "size": {
+        "0": 315,
+        "1": 358
+      },
+      "flags": {
+        "collapsed": false
+      },
+      "order": 5,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "source_image",
+          "type": "IMAGE",
+          "link": 114,
+          "label": "source_image"
+        },
+        {
+          "name": "input_image",
+          "type": "IMAGE",
+          "link": 115,
+          "slot_index": 1,
+          "label": "input_image"
+        },
+        {
+          "name": "face_model",
+          "type": "FACE_MODEL",
+          "link": null,
+          "slot_index": 2,
+          "label": "face_model"
+        },
+        {
+          "name": "face_boost",
+          "type": "FACE_BOOST",
+          "link": null,
+          "label": "face_boost"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            116
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "IMAGE"
+        },
+        {
+          "name": "FACE_MODEL",
+          "type": "FACE_MODEL",
+          "links": null,
+          "slot_index": 1,
+          "shape": 3,
+          "label": "FACE_MODEL"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ReActorFaceSwap"
+      },
+      "widgets_values": [
+        true,
+        "inswapper_128.onnx",
+        "retinaface_resnet50",
+        "codeformer-v0.1.0.pth",
+        1,
+        1,
+        "no",
+        "no",
+        "0",
+        "0",
+        1
+      ]
+    },
+    {
+      "id": 69,
+      "type": "SaveImage",
+      "pos": {
+        "0": 3417.93798828125,
+        "1": 263.91705322265625
+      },
+      "size": {
+        "0": 315,
+        "1": 58
+      },
+      "flags": {},
+      "order": 7,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 116,
+          "label": "images"
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "SaveImage"
+      },
+      "widgets_values": [
+        "%date:yyyy-mm-dd%"
+      ]
+    },
+    {
+      "id": 16,
+      "type": "ReActorFaceSwap",
+      "pos": {
+        "0": 2871,
+        "1": 1461
+      },
+      "size": {
+        "0": 315,
+        "1": 358
+      },
+      "flags": {
+        "collapsed": false
+      },
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "source_image",
+          "type": "IMAGE",
+          "link": 117,
+          "label": "source_image"
+        },
+        {
+          "name": "input_image",
+          "type": "IMAGE",
+          "link": 110,
+          "slot_index": 1,
+          "label": "input_image"
+        },
+        {
+          "name": "face_model",
+          "type": "FACE_MODEL",
+          "link": null,
+          "slot_index": 2,
+          "label": "face_model"
+        },
+        {
+          "name": "face_boost",
+          "type": "FACE_BOOST",
+          "link": null,
+          "label": "face_boost"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            111
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "IMAGE"
+        },
+        {
+          "name": "FACE_MODEL",
+          "type": "FACE_MODEL",
+          "links": null,
+          "slot_index": 1,
+          "shape": 3,
+          "label": "FACE_MODEL"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ReActorFaceSwap"
+      },
+      "widgets_values": [
+        true,
+        "inswapper_128.onnx",
+        "retinaface_resnet50",
+        "codeformer-v0.1.0.pth",
+        1,
+        1,
+        "no",
+        "no",
+        "0",
+        "0",
+        1
+      ]
+    },
+    {
+      "id": 66,
+      "type": "SaveVideo [n-suite]",
+      "pos": {
+        "0": 3446,
+        "1": 1393
+      },
+      "size": {
+        "0": 691.2752685546875,
+        "1": 843.501953125
+      },
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 111,
+          "label": "images"
+        },
+        {
+          "name": "METADATA",
+          "type": "STRING",
+          "link": 112,
+          "widget": {
+            "name": "METADATA"
+          },
+          "label": "METADATA"
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "SaveVideo [n-suite]"
+      },
+      "widgets_values": [
+        "",
+        true,
+        false,
+        "video",
+        2,
+        null
+      ]
+    },
+    {
+      "id": 70,
+      "type": "LoadImage",
+      "pos": {
+        "0": 1973,
+        "1": 1211
+      },
+      "size": {
+        "0": 315,
+        "1": 314
+      },
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            117
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "IMAGE"
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null,
+          "slot_index": 1,
+          "shape": 3,
+          "label": "MASK"
+        }
+      ],
+      "title": "Your selfie",
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "20191219_Darren.jpg",
+        "image"
+      ]
+    },
+    {
+      "id": 67,
+      "type": "LoadVideo [n-suite]",
+      "pos": {
+        "0": 1964,
+        "1": 1626
+      },
+      "size": {
+        "0": 586.45703125,
+        "1": 654
+      },
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGES",
+          "type": "IMAGE",
+          "links": [
+            110
+          ],
+          "slot_index": 0,
+          "shape": 6,
+          "label": "IMAGES"
+        },
+        {
+          "name": "EMPTY LATENTS",
+          "type": "LATENT",
+          "links": null,
+          "shape": 6,
+          "label": "EMPTY LATENTS"
+        },
+        {
+          "name": "METADATA",
+          "type": "STRING",
+          "links": [
+            112
+          ],
+          "slot_index": 2,
+          "shape": 3,
+          "label": "METADATA"
+        },
+        {
+          "name": "WIDTH",
+          "type": "INT",
+          "links": null,
+          "shape": 3,
+          "label": "WIDTH"
+        },
+        {
+          "name": "HEIGHT",
+          "type": "INT",
+          "links": null,
+          "shape": 3,
+          "label": "HEIGHT"
+        },
+        {
+          "name": "META_FPS",
+          "type": "INT",
+          "links": null,
+          "shape": 3,
+          "label": "META_FPS"
+        },
+        {
+          "name": "META_N_FRAMES",
+          "type": "INT",
+          "links": null,
+          "shape": 3,
+          "label": "META_N_FRAMES"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadVideo [n-suite]"
+      },
+      "widgets_values": [
+        "2024-09-21 16-10-07.mp4",
+        "/api/view?filename=2024-09-21%2016-10-07.mp4&type=input&subfolder=n-suite",
+        "original",
+        "none",
+        512,
+        0,
+        0,
+        0,
+        false,
+        false,
+        "image",
+        null
+      ]
+    },
+    {
+      "id": 71,
+      "type": "Fast Groups Muter (rgthree)",
+      "pos": {
+        "0": 4415.61572265625,
+        "1": 1585.7984619140625
+      },
+      "size": {
+        "0": 290.9825134277344,
+        "1": 161.40086364746094
+      },
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "OPT_CONNECTION",
+          "type": "*",
+          "links": null,
+          "label": "OPT_CONNECTION"
+        }
+      ],
+      "properties": {
+        "matchColors": "",
+        "matchTitle": "",
+        "showNav": true,
+        "sort": "position",
+        "customSortAlphabet": "",
+        "toggleRestriction": "default"
+      }
+    }
+  ],
+  "links": [
+    [
+      110,
+      67,
+      0,
+      16,
+      1,
+      "IMAGE"
+    ],
+    [
+      111,
+      16,
+      0,
+      66,
+      0,
+      "IMAGE"
+    ],
+    [
+      112,
+      67,
+      2,
+      66,
+      1,
+      "STRING"
+    ],
+    [
+      114,
+      17,
+      0,
+      68,
+      0,
+      "IMAGE"
+    ],
+    [
+      115,
+      61,
+      0,
+      68,
+      1,
+      "IMAGE"
+    ],
+    [
+      116,
+      68,
+      0,
+      69,
+      0,
+      "IMAGE"
+    ],
+    [
+      117,
+      70,
+      0,
+      16,
+      0,
+      "IMAGE"
+    ]
+  ],
+  "groups": [
+    {
+      "title": "Video FaceSwap",
+      "bounding": [
+        1885,
+        1054,
+        2312,
+        1251
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "title": "Image Faceswap",
+      "bounding": [
+        1903,
+        127,
+        2056,
+        863
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    }
+  ],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.2794145953766199,
+      "offset": [
+        -848.7466084285975,
+        233.10883170831357
+      ]
+    },
+    "workspace_info": {
+      "id": "FYho2PP2XMYVDg0VJeE1T"
+    }
+  },
+  "version": 0.4
+}
